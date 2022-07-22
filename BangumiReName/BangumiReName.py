@@ -661,7 +661,7 @@ if os.path.isdir(target_path):
                 # 系列名称
                 series = get_series_from_season_path(season_path)
                 # new_name = f'S{season}E{ep}' + '.' + fix_ext(ext)
-                new_name = name_format.format(**locals()) + ' - ' + name + '.' + fix_ext(ext)
+                new_name = name_format.format(**locals()) + ' - ' + name
 
                 if custom_replace_pair:
                     # 自定义替换关键字
@@ -693,7 +693,7 @@ else:
             # 系列名称
             series = get_series_from_season_path(season_path)
             # new_name = f'S{season}E{ep}' + '.' + fix_ext(ext)
-            new_name = name_format.format(**locals()) + '.' + fix_ext(ext)
+            new_name = name_format.format(**locals()) + '-' + name
 
             if custom_replace_pair:
                 # 自定义替换关键字
