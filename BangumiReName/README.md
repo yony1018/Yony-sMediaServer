@@ -9,4 +9,5 @@
 
 ## Usage
 > qBittorrent auto rename:
+> 
 > Set extension program as: `python3 {path_of_BangumiReName.py} --path "%D" --delay 15 --replace chs chi`
