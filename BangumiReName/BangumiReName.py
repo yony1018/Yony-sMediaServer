@@ -333,27 +333,37 @@ def get_season_and_ep(file_path):
             s = s[::-1]
             for y in s:
                 y = y.strip()
-                res_sub = re.search(pat, y)
-                if res_sub:
-                    logger.info(f'{res_sub}')
-                    ep = res_sub.group(1)
-                    return ep
+                try:
+                    res_sub = re.search(pat, y)
+                    if res_sub:
+                        logger.info(f'{res_sub}')
+                        ep = res_sub.group(1)
+                        return ep
+                except:
+                    pass
+
 
             # 兼容END命名
             pat = '(\d{1,4}(\.5)?)\s?(?i:END)?'
             ep = None
-            res_sub = re.search(pat, s)
-            if res_sub:
-                logger.info(f'{res_sub}')
-                ep = res_sub.group(1)
-                return ep
+            try:
+                res_sub = re.search(pat, s)
+                if res_sub:
+                    logger.info(f'{res_sub}')
+                    ep = res_sub.group(1)
+                    return ep
+            except:
+                pass
 
             pat = '\d{1,4}(\.5)?$'
-            res_sub = re.search(pat, s)
-            if res_sub:
-                logger.info(f'{res_sub}')
-                ep = res_sub.group(0)
-                return ep
+            try:
+                res_sub = re.search(pat, s)
+                if res_sub:
+                    logger.info(f'{res_sub}')
+                    ep = res_sub.group(0)
+                    return ep
+            except:
+                pass
             return ep
 
         if not ep:
